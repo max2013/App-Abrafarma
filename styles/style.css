@@ -386,7 +386,7 @@ and (orientation : landscape){
 /*////////////////////////*/
 
 .header{
-	background-color:#1c1c1c;
+	background-color:#012438;
 	height:60px;
 	position:fixed;
 	width:100%;
@@ -451,7 +451,7 @@ and (orientation : landscape){
 
 .navigation{
 	border-bottom:solid 5px #e34e47;
-	background-color:#1c1c1c;
+	background-color:#133A5B;
 	position:absolute;
 	width:100%;
 	z-index:999999;

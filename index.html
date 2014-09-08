@@ -29,7 +29,7 @@
 <script type="text/javascript" src="scripts/jquery.swipebox.js"></script>
 <script type="text/javascript" src="scripts/colorbox.js"></script>
 <script type="text/javascript" src="scripts/snap.js"></script>
-<script type="text/javascript" src="scripts/contact.js"></script>
+<script type="text/javascript" src="scripts/login.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" src="scripts/framework.js"></script>
 <script type="text/javascript" src="scripts/framework.launcher.js"></script>
@@ -65,29 +65,10 @@
 </style>
 
  <script>
-    document.addEventListener('deviceready', onDeviceReady, false);
+    //document.addEventListener('deviceready', onDeviceReady, false);
     onDeviceReady();
-    
-    $(window).load(function()
-    {
-        
-        $('#sendLogin').click(function()
-        {
-            sessionStorage.firstname = $('#contactNameField').val();
-
-           //console.log(ExternalURL+'/inscricoes/select_reservas')
-           //$.getJSON(ExternalURL+'/inscricoes/handleApp/isApp/true',
-           //function(data)
-          // {
-               
-          // }) ;
-           
-           
-        });
-        
-        alert('Nome: '+sessionStorage.firstname);
-    });
-    
+    //if(sessionStorage == null) alert("Storage not supported by the browser");
+       // sessionStorage.firstname = 'Rafael';
 </script>
 </head>
 <body>
@@ -104,16 +85,27 @@
     
     <div class="homepage-navigation">
         <br><br>
-        <div class="home-form">
+        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+            <div class="big-notification green-notification">
+                <h3 class="uppercase" id="uppercaseSuccess">Usuário logado com sucesso!</h3>
+            </div>
+        </div>
+        
+        <div class="formValidationError" id="authError">
+            <div class="static-notification-red tap-dismiss-notification">
+                <p class="center-text uppercase">Dados incorretos!</p>
+            </div>
+        </div>       
+        <div class="home-form" id="home-form">
             <div class="home-base-form" >
-                 <form action="#" method="post" class="contactForm" id="contactForm">
+                 <form action="login/handleAutentication/isApp/true" method="post" class="contactForm" id="contactForm" name="contactForm">
                     <fieldset>
-                        <div class="formValidationError" id="contactNameFieldError">
+                        <div class="formValidationError" id="loginError">
                             <div class="static-notification-red tap-dismiss-notification">
                                 <p class="center-text uppercase">Informe o login!</p>
                             </div>
                         </div>             
-                        <div class="formValidationError" id="contactEmailFieldError">
+                        <div class="formValidationError" id="senhaError">
                             <div class="static-notification-red tap-dismiss-notification">
                                 <p class="center-text uppercase">Informe a senha!</p>
                             </div>
@@ -122,15 +114,16 @@
                        
                         <div class="formFieldWrap">
                             <label class="field-title contactNameField" for="contactNameField">Login<span>(obrigatório)</span></label>
-                            <input type="text" name="contactNameField" value="" class="contactField requiredField inputSize" id="contactNameField"/>
-                        </div>
-                        <div class="formFieldWrap">
-                            <label class="field-title contactEmailField" for="contactEmailField">Senha <span>(obrigatório)</span></label>
-                            <input type="password" name="contactEmailField" value="" class="contactField requiredField inputSize" id="contactEmailField"/>
+                            <input type="text" name="login" value="aft.valeverde" class="contactField requiredField inputSize" id="login"/>
                         </div>
                         
+                        <div class="formFieldWrap">
+                            <label class="field-title contactEmailField" for="contactEmailField">Senha <span>(obrigatório)</span></label>
+                            <input type="password" name="senha" value="123" class="contactField requiredField inputSize" id="senha"/>
+                        </div>
+                        <br>
                         <div class="formSubmitButtonErrorsWrap">
-                            <input type="button" class="buttonWrap button button-blue contactSubmitButton" id="sendLogin" value="Enviar" data-formId="contactForm"/>
+                            <input type="button" class="buttonWrap button button-blue contactSubmitButton" id="contactSubmitButton" value="Enviar" data-formId="contactForm"/>
                         </div>
                     </fieldset>
                 </form>

@@ -36,16 +36,13 @@
 
 
 <!--- MY PLUGINS -->
-
+<script type="text/javascript" src="lib/js/menu_navigation.js"></script>
 </head>
-<body>
+<body >
 
 <div id="preloader">
 	<div id="status">
-    	<p class="center-text">
-			Carregando conteúdo
-            <em>Loading depends on your connection speed!</em>
-        </p>
+    	<p class="center-text"> Carregando conteúdo </p>
     </div>
 </div>
 
@@ -56,43 +53,7 @@
 </div>
 
 <!--- MENU --->
-<div class="navigation" id="navigation">
-	<div class="navigation-wrapper">
-        <div class="nav-item">
-            <a href="index.html" class="landing-icon">Tela inicial<em class="unselected-item"></em></a>
-        </div>
-    	<div class="nav-item">
-        	<a href="homepage.html" class="homepage-icon">Home<em class="selected-item"></em></a>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="submenu-item features-icon">Features<em class="dropdown-item"></em></a>
-            <div class="submenu">
-            	<a href="type.html">Typography</a>
-                <a href="jquery.html">jQuery</a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="submenu-item camera-icon">Gallery<em class="dropdown-item"></em></a>
-            <div class="submenu">
-            	<a href="tile-gallery.html">Tile Gallery			 <em class="unselected-item"></em></a>
-                <a href="thumbnail-gallery.html">Thumbnail Gallery	<em class="unselected-item"></em></a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="submenu-item portfolio-icon">Portfolio<em class="dropdown-item"></em></a>
-            <div class="submenu">
-            	<a href="tile-folio.html">Tile Portfolio			  <em class="unselected-item"></em></a>
-                <a href="one-column.html">One Column Portfolio	  <em class="unselected-item"></em></a>
-                <a href="two-column.html">Two Column Portfolio	  <em class="unselected-item"></em></a>
-                <a href="three-column.html">Three Column Portfolio	<em class="unselected-item"></em></a>
-                <a href="videos.html">Video Items</a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a href="contact.html" class="contact-icon">Contact<em class="unselected-item"></em></a>
-        </div>
-    </div>
-</div>
+<div class="navigation" id="navigation"> </div>
 
 <div class="page-header-clear"></div>
   
@@ -135,10 +96,25 @@
 <div class="content">
 	<div class="decoration"></div>
     <div class="container no-bottom">
-    	<h3>Welcome</h3>
-        <p>Slasher brings beautiful creativity to your device, an awesome landing page, a unique fullscreen experience, all piled up in our wonderful and optimized Epsilon Framework.</p>
+        <h3>Agenda <script> document.write(sessionStorage.firstname);</script></h3>
+        <p>Bem vindo ao aplicativo do Abrafarma Future Trends. Explore-o fazendo suas anotações, conhecendo nossos palestrantes, visualizando e/ou criando sua prórpia agenda e o melhor de tudo, podendo ver todos estes itens a qualquer momento pelo seu SmarthPhone ou Tablet.</p>
     </div>	
-    <div class="decoration"></div>    
+    <div class="decoration"></div>
+    
+    <div class="container no-bottom">
+        <h3>Mensagem do Presidente</h3>
+        <p>Assista a mensagem do nosso presidente para você:</p>
+        <video controls poster="images/img_foto_presidente_home.jpg" src="http://www.abrafarmafuturetrends.com.br/beta/web/assets/video/mena_msg01_web.mp4"></video>
+    </div>
+    <div class="decoration"></div>
+
+    <div class="container no-bottom">
+        <h3>Vídeo Institucional</h3>
+        <p>Assista ao nosso vídeo institucional</p>
+        <video controls poster="images/img_vinheta.jpg" src="http://www.abrafarmafuturetrends.com.br/beta/web/assets/video/abrafarma_02_1.mp4"></video>
+    </div>
+    <div class="decoration"></div>
+    
 </div>
 
 <div class="content-section">
