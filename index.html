@@ -29,7 +29,7 @@
 <script type="text/javascript" src="scripts/jquery.swipebox.js"></script>
 <script type="text/javascript" src="scripts/colorbox.js"></script>
 <script type="text/javascript" src="scripts/snap.js"></script>
-<script type="text/javascript" src="scripts/login.js"></script>
+
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" src="scripts/framework.js"></script>
 <script type="text/javascript" src="scripts/framework.launcher.js"></script>
@@ -37,7 +37,9 @@
 
 <!-- MY PLUGINS -->
 <script type="text/javascript" src="phonegap.js"></script>
-<script type="text/javascript" src="lib/js/js_install.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/login.js"></script>
 
 <style>
     .home-form
@@ -65,13 +67,20 @@
 </style>
 
  <script>
-    //document.addEventListener('deviceready', onDeviceReady, false);
-    onDeviceReady();
+    document.addEventListener('deviceready', onDeviceReady, false);
+    
+    function onDeviceReady()
+    {
+        var connect = new AntsDB();
+        connect.handleConnect();
+        connect.handleCreateDb();
+    }
+            
     //if(sessionStorage == null) alert("Storage not supported by the browser");
        // sessionStorage.firstname = 'Rafael';
 </script>
 </head>
-<body>
+<body onload=" onDeviceReady();">
 
 <div id="preloader">
 	<div id="status">
@@ -87,7 +96,7 @@
         <br><br>
         <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
             <div class="big-notification green-notification">
-                <h3 class="uppercase" id="uppercaseSuccess">Usuário logado com sucesso!</h3>
+                <h3 class="uppercase" id="uppercaseSuccess" style="text-align: center;">Usuário logado com sucesso!</h3>
             </div>
         </div>
         
@@ -114,12 +123,12 @@
                        
                         <div class="formFieldWrap">
                             <label class="field-title contactNameField" for="contactNameField">Login<span>(obrigatório)</span></label>
-                            <input type="text" name="login" value="aft.valeverde" class="contactField requiredField inputSize" id="login"/>
+                            <input type="text" name="login" value="sergio.abrafarma" class="contactField requiredField inputSize" id="login"/>
                         </div>
                         
                         <div class="formFieldWrap">
                             <label class="field-title contactEmailField" for="contactEmailField">Senha <span>(obrigatório)</span></label>
-                            <input type="password" name="senha" value="123" class="contactField requiredField inputSize" id="senha"/>
+                            <input type="password" name="senha" value="sergio2014" class="contactField requiredField inputSize" id="senha"/>
                         </div>
                         <br>
                         <div class="formSubmitButtonErrorsWrap">
