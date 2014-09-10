@@ -36,6 +36,7 @@
 
 
 <!-- MY PLUGINS -->
+<script type="text/javascript" src="lib/js/fastclick.js"></script>
 <script type="text/javascript" src="phonegap.js"></script>
 <script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
 <script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
@@ -67,6 +68,11 @@
 </style>
 
  <script>
+     $(document).bind("mobileinit", function () {
+        
+            FastClick.attach(document.body);
+        });
+        
     document.addEventListener('deviceready', onDeviceReady, false);
     
     function onDeviceReady()
@@ -74,6 +80,7 @@
         var connect = new AntsDB();
         connect.handleConnect();
         connect.handleCreateDb();
+        //connect.handleGetErrors();
     }
             
     //if(sessionStorage == null) alert("Storage not supported by the browser");
@@ -107,7 +114,7 @@
         </div>       
         <div class="home-form" id="home-form">
             <div class="home-base-form" >
-                 <form action="login/handleAutentication/isApp/true" method="post" class="contactForm" id="contactForm" name="contactForm">
+                 <form action="login/handleAutenticationApp/isApp/true" method="post" class="contactForm" id="contactForm" name="contactForm">
                     <fieldset>
                         <div class="formValidationError" id="loginError">
                             <div class="static-notification-red tap-dismiss-notification">

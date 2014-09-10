@@ -41,4 +41,18 @@
         <div class="nav-item">
             <a href="contact.html" class="contact-icon">Contato<em class="unselected-item"></em></a>
         </div>
+        
+        <div class="nav-item">
+            <a href="#" class="features-icon" id="btnLogout">Sair<em class="unselected-item"></em></a>
+        </div>
     </div>
+
+<script>
+    $(document).ready(function(){
+        $('#btnLogout').click(function()
+       {
+           sessionStorage.userlogado = '';
+           window.location = 'index.html';
+       });
+    });
+</script>
