@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1.5"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -14,7 +14,7 @@
 <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)"/>
 <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
 
-<title>Epsilon Mobile Framework - Version 2.0</title>
+<title>App - Abrafarma</title>
 
 <link href="styles/style.css"     		rel="stylesheet" type="text/css">
 <link href="styles/framework.css" 		rel="stylesheet" type="text/css">
@@ -35,93 +35,44 @@
 <script type="text/javascript" src="scripts/framework.launcher.js"></script>
 
 
-</head>
-<body>
+<!--- MY PLUGINS -->
+<script type="text/javascript" src="lib/js/fastclick.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
 
+</head>
+
+
+<body >
+<!-- CARREGANDO -->
 <div id="preloader">
 	<div id="status">
-    	<p class="center-text">
-			Loading the content...
-            <em>Loading depends on your connection speed!</em>
-        </p>
+    	<p class="center-text"> Carregando conteúdo </p>
     </div>
 </div>
-
 
 <div class="header">
 	<a href="#" class="show-navigation"></a>
     <a href="#" class="hide-navigation"></a>
-    <img src="images/misc/logo.png" class="page-logo" alt="img">
+    <img src="images/misc/logo.png" class="page-logo" alt="img" width="50">
 </div>
 
-<div class="navigation">
-	<div class="navigation-wrapper">
-        <div class="nav-item">
-            <a href="index.html" class="landing-icon">Homepage<em class="unselected-item"></em></a>
-        </div>
-    	<div class="nav-item">
-        	<a href="homepage.html" class="homepage-icon">Welcome<em class="unselected-item"></em></a>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="submenu-item features-icon">Features<em class="dropdown-item"></em></a>
-            <div class="submenu">
-            	<a href="type.html">Typography <em class="unselected-item"></em></a>
-                <a href="jquery.html">jQuery   <em class="unselected-item"></em></a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="submenu-item camera-icon">Gallery<em class="dropdown-item"></em></a>
-            <div class="submenu">
-            	<a href="tile-gallery.html">Tile Gallery			 <em class="unselected-item"></em></a>
-                <a href="thumbnail-gallery.html">Thumbnail Gallery	<em class="unselected-item"></em></a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="submenu-item portfolio-icon">Portfolio<em class="dropdown-item"></em></a>
-            <div class="submenu">
-            	<a href="tile-folio.html">Tile Portfolio				<em class="unselected-item"></em></a>
-                <a href="one-column.html">One Column Portfolio		<em class="unselected-item"></em></a>
-                <a href="two-column.html">Two Column Portfolio		<em class="unselected-item"></em></a>
-                <a href="three-column.html">Three Column Portfolio	  <em class="unselected-item"></em></a>
-                <a href="videos.html">Video Items						<em class="unselected-item"></em></a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a href="contact.html" class="contact-icon">Contact<em class="selected-item"></em></a>
-        </div>
-    </div>
-</div>
+<!--- MENU --->
+<div class="navigation" id="navigation"> </div>
 
 <div class="page-header-clear"></div>
-  
+
 <div class="content-section">
-    <h1 class="left-text">LET'S CONNECT</h1>
-    <em class="left-text">Send us a message, or give us a call!</em>
-    <div class="overlay"></div>
-    <img class="responsive-image" src="images/general-nature/5w.jpg" alt="img">
+    <h1 class="left-text">Contato</h1>
+    <em class="left-text"></em>
+    <div class="overlay overlay-pattern"></div>
+    <img class="responsive-image" src="images/general-nature/3w.jpg" alt="img">
 </div>
 
 <div class="content">
-    <div class="container no-bottom">
-    <h4>We're here!</h4>
-    <p>
-        This is a google maps embed code, simple to add, simple to use, no complications! You can also embed bing maps using the same method!
-        The contact form is simply powered by PHP and AJAX, so the page won't refresh after sending a message! It's very easy to edit, one single PHP 
-        file and one address that needs replacing with yours!
-    </p>
-    </div>
-    <div class="decoration"></div>
-</div>
-
-<div class="maps-container">
-    <iframe class="responsive-image maps" src="https://maps.google.com/?ie=UTF8&amp;ll=47.595131,-122.330414&amp;spn=0.006186,0.016512&amp;t=h&amp;z=17&amp;output=embed"></iframe>
-</div>
-
-<div class="content">
-    <div class="decoration"></div>
+      
     <div class="one-half-responsive">
-        <h4>Send us an email!</h4>
-        <p>Use the form to send us a message, it's AJAX and PHP powered and it's easy to use!</p>
+        <h4>Formulário de contato</h4>
+        <p>Pra dúvidas ou maiores informações, envie-nos umas mensagem</p>
         <div class="container no-bottom">
             <div class="contact-form no-bottom"> 
                 <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
@@ -136,38 +87,57 @@
                     <fieldset>
                         <div class="formValidationError" id="contactNameFieldError">
                             <div class="static-notification-red tap-dismiss-notification">
-                                <p class="center-text uppercase">Name is required!</p>
+                                <p class="center-text uppercase">Preencha o nome!</p>
                             </div>
                         </div>             
                         <div class="formValidationError" id="contactEmailFieldError">
                             <div class="static-notification-red tap-dismiss-notification">
-                                <p class="center-text uppercase">Mail address required!</p>
+                                <p class="center-text uppercase">Preencha o e-mail!</p>
                             </div>
-                        </div> 
+                        </div>
                         <div class="formValidationError" id="contactEmailFieldError2">
                             <div class="static-notification-red tap-dismiss-notification">
-                                <p class="center-text uppercase">Mail address must be valid!</p>
+                                <p class="center-text uppercase">Informe um e-mail válido!</p>
                             </div>
-                        </div> 
+                        </div>
+                        <div class="formValidationError" id="empresaNameFieldError">
+                            <div class="static-notification-red tap-dismiss-notification">
+                                <p class="center-text uppercase">Informe sua empresa!</p>
+                            </div>
+                        </div>       
+                        
+                        <div class="formValidationError" id="telefoneNameFieldError">
+                            <div class="static-notification-red tap-dismiss-notification">
+                                <p class="center-text uppercase">Informe o telefone!</p>
+                            </div>
+                        </div>       
                         <div class="formValidationError" id="contactMessageTextareaError">
                             <div class="static-notification-red tap-dismiss-notification">
-                                <p class="center-text uppercase">Message field is empty!</p>
+                                <p class="center-text uppercase">Preencher todos os campos!</p>
                             </div>
                         </div>   
                         <div class="formFieldWrap">
-                            <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
+                            <label class="field-title contactNameField" for="contactNameField">Nome<span>(obrigatório)</span></label>
                             <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField"/>
                         </div>
                         <div class="formFieldWrap">
-                            <label class="field-title contactEmailField" for="contactEmailField">Email: <span>(required)</span></label>
+                            <label class="field-title contactEmailField" for="contactEmailField">E-mail: <span>(obrigatório)</span></label>
                             <input type="text" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField"/>
                         </div>
+                        <div class="formFieldWrap">
+                            <label class="field-title contactNameField" for="empresaNameField">Empresa<span>(obrigatório)</span></label>
+                            <input type="text" name="empresaNameField" value="" class="contactField requiredField" id="empresaNameField"/>
+                        </div>
+                        <div class="formFieldWrap">
+                            <label class="field-title contactNameField" for="telefoneNameField">Telefone<span>(obrigatório)</span></label>
+                            <input type="text" name="telefoneNameField" value="" class="contactField requiredField" id="telefoneNameField"/>
+                        </div>
                         <div class="formTextareaWrap">
-                            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
+                            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Mensagem <span>(obrigatório)</span></label>
                             <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
                         </div>
                         <div class="formSubmitButtonErrorsWrap">
-                            <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="SUBMIT" data-formId="contactForm"/>
+                            <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="Enviar" data-formId="contactForm"/>
                         </div>
                     </fieldset>
                 </form>       
@@ -177,43 +147,41 @@
     <div class="decoration hide-if-responsive"></div>
     <div class="one-half-responsive last-column">
         <div class="container no-bottom">
-            <h4>Contact Information</h4>
+            <h4>Informações de contato</h4>
             <p>
-                <strong>Postal Information</strong><br>
-                PO Box 16122 Collins Street West<br>
-                Victoria 8007 Australia
+                <strong>Abrafarma</strong><br>
+                <a class="contact-call" href="tel:1130655777">(11) 3065-5777</a>
+                <a class="contact-mail" href="mailto:atendimento@abrafarma.com.br?subject=Contato via aplicativo">atendimento@abrafarma.com.br</a>
             </p>
             <p>
-                <strong>Envato Headquarters</strong><br>
-                121 King Street, Melbourne <br>
-                Victoria 3000 Australia
+                <strong>AVM Eventos Estratégicos</strong><br>
+                <strong>Luana Rodrigues</strong><br>
+                <a class="contact-call" href="tel:1132969142">(11) 3296-9142</a>
+                <a class="contact-call" href="tel:11993783219">(11) 99378-3219</a>
+                <a class="contact-mail" href="luana.rodrigues@avmeventos.com.br?subject=Contato via aplicativo">luana.rodrigues@avmeventos.com.br</a>
             </p>
+            
             <p>
-                <strong>Envato Pty Ltd</strong><br>
-                ABN 11 119 159 741
+                <strong>Coordenação Técnica</strong><br>
+                <strong>Nelson Barrizzelli</strong><br>
+                <a class="contact-call" href="tel:1122760652">(11) 2276-0652</a>
+                <a class="contact-call" href="tel:11984440222">(11) 98444-0222</a>
+                <a class="contact-mail" href="barrizzelli@agcintl.com?subject=Contato via aplicativo">barrizzelli@agcintl.com</a>
+                <br><br>
+                
             </p>
-            <p>
-                <strong>Contact Information:</strong><br>
-                <a href="#" class="contact-call">Phone: + 123 456 7890</a>
-                <a href="#" class="contact-text">Message: + 123 456 7890</a>
-                <a href="#" class="contact-mail">Email: mail@doamin.com</a>
-                <a href="#" class="contact-facebook">Fanpage: enabled.labs</a>
-                <a href="#" class="contact-twitter">Twitter: @iEnabled</a>
-            </p>
+            
+           
         </div>
     </div>
+    
+    
+    
 </div>
-        
-        
-                                
+
 <div class="content">
-	<div class="decoration"></div>
     <div class="container">
-        <div class="footer-socials">
-            <a href="#" class="facebook-footer"></a>
-            <a href="#" class="goup-footer"></a>
-            <a href="#" class="twitter-footer"></a>
-        </div>
+        
         <p class="copyright uppercase center-text no-bottom">Copyright 2013<br> All rights reserved</p>        
     </div>
 </div>

@@ -14,7 +14,7 @@
 <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)"/>
 <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
 
-<title>Epsilon Mobile Framework - Version 2.0</title>
+<title>App - Abrafarma</title>
 
 <link href="styles/style.css"     		rel="stylesheet" type="text/css">
 <link href="styles/framework.css" 		rel="stylesheet" type="text/css">
@@ -36,7 +36,20 @@
 
 
 <!--- MY PLUGINS -->
-<script type="text/javascript" src="lib/js/menu_navigation.js"></script>
+<script type="text/javascript" src="lib/js/fastclick.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/agenda.js"></script>
+
+
+<script>
+     $(document).bind("mobileinit", function () {
+        FastClick.attach(document.body);
+     });
+        
+</script>
+
 </head>
 <body >
 
@@ -60,30 +73,12 @@
 <div class="slider-container">
     <div class="homepage-slider" data-snap-ignore="true">                
         <div>
-            <!--<div class="overlay"></div>
-            <div class="homepage-slider-caption">
-                <h3>Swipe me!</h3>
-                <p>Hope you enjoy our latest item!</p>
-            </div>
-            -->
             <img src="images/general-nature/1.jpg" class="responsive-image" alt="img">
         </div>
         <div>
-            <!--<div class="overlay"></div>
-            <div class="homepage-slider-caption">
-                <h3>Swipe me!</h3>
-                <p>Hope you enjoy our latest item!</p>
-            </div>
-            -->
             <img src="images/general-nature/3.jpg" class="responsive-image" alt="img">
         </div>
         <div>
-            <!--<div class="overlay"></div>
-            <div class="homepage-slider-caption">
-                <h3>Swipe me!</h3>
-                <p>Hope you enjoy our latest item!</p>
-            </div>
-            -->
             <img src="images/general-nature/6.jpg" class="responsive-image" alt="img">
         </div>
     </div>
@@ -104,76 +99,22 @@
        <p>Acompanhe abaixo nossa programação</p>
        
        <!-- Fórum de alta Gestão -->
-       <table cellspacing='0' class="table">
-            <tr>
-                <th colspan="3" style="background-image: url(images/img_logo_forum.png); background-repeat: no-repeat; width: 100px;height: 83px; background-size: 15%; background-position: right;" >Fórum de Alta Gestão</th>
-                
-            </tr>
-            <tr>
-                <td colspan="3" class="table-sub-title"> Sessão exclusiva (café da manhã e almoço) para alta gestão de nossas redes e das indústrias 
-  parceiras, promovendo debates de temas relevantes para o futuro e sucesso de nossos negócios,
-contando ainda com a presença de convidados especiais.</td>
-            </tr>
-        </table>
-       
-       <!-- Encontre o varejista-->
-       <table cellspacing='0' class="table">
-            <tr>
-                <th colspan="3" style="background-image: url(images/img_logo_varejista.png); background-repeat: no-repeat; width: 100px;height: 83px; background-size: 15%; background-position: right;">Encontre o varejista</th>           
-            </tr>
-            <tr>
-                <td colspan="3" class="table-sub-title"> Sessões onde cada rede apresentará exclusivamente para seus parceiros comerciais suas 
- estratégias e expectativas futuras (planos comerciais, exposições mercadológicas em parceria, 
-  encartes promocionais, planejamento de marketing anual). Contaremos também com uma 
-área exclusiva (lounge VIP) de interação entre as redes e seus parceiros de negócios.</td>
-            </tr>
-        </table>
-       
-       
-       <!-- Super Sessões-->
-       <table cellspacing='0' class="table">
-            <tr>
-                <th colspan="3" style="background-image: url(images/img_logo_super_sessoes.png); background-repeat: no-repeat; width: 100px;height: 83px; background-size: 15%; background-position: right;">
-                    Super Sessões</th>           
-            </tr>
-            <tr>
-                <td colspan="3" class="table-sub-title">
-                    Temas de interesse comum abordados por renomados especialistas nacionais e internacionais nas mais diversas áreas de atuação (apresentações de técnicas voltadas para gerenciamento de categorias, multicanais, inteligência da informação etc).
-                    <br>
-                    (Não será necessário inscrição para presenças nas  sessões. Os assentos serão disponíveis por ordem de chegada)
-                </td>
-            </tr>
-        </table>
-       
-       
-        <!-- Sessões Temáticas-->
-       <table cellspacing='0' class="table">
-            <tr>
-                <th colspan="3" style="background-image: url(images/img_logo_sessoes_tematicas.png); background-repeat: no-repeat; width: 100px;height: 83px; background-size: 15%; background-position: right;">
-                    Sessões Temáticas
-                </th>           
-            </tr>
-            <tr>
-                <td colspan="3" class="table-sub-title">
-                    Um espaço programado para as indústrias parceiras (patrocinadoras) apresentarem temas inovadores, suas estratégias de mercado, mensagens de produtos e serviços. Um momento 
-único para interagir de forma diferenciada com as redes associadas ABRAFARMA.
-                </td>
-            </tr>
-        </table>
-       
+       <div id="divBaseSessoes">
+           
+           <div class="one-half-responsive last-column">
+                <div class="container"> </div>      
+            </div>
+       </div>
        
     </div>
+    
 </div>
 
         
 <div class="content">
     <div class="container">
-        <div class="footer-socials">
-            <a href="#" class="facebook-footer"></a>
-            <a href="#" class="goup-footer"></a>
-            <a href="#" class="twitter-footer"></a>
-        </div>
-        <p class="copyright uppercase center-text no-bottom">Copyright 2013<br> All rights reserved</p>        
+       
+        <p class="copyright uppercase center-text no-bottom">Copyright 2014<br> Todos os direitos reservados</p>        
     </div>
 </div>
 

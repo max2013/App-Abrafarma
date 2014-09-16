@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, minimum-scale=1, maximum-scale=1.5"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -36,9 +36,21 @@
 
 
 <!--- MY PLUGINS -->
-</head>
-<body >
+<script type="text/javascript" src="lib/js/fastclick.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
 
+<script>
+    
+    function viewImage()
+    {
+        var ref = window.open('images/Estande01.jpg', '_blank', 'EnableViewPortScale=yes');
+    }
+</script>
+</head>
+
+
+<body >
+<!-- CARREGANDO -->
 <div id="preloader">
 	<div id="status">
     	<p class="center-text"> Carregando conteúdo </p>
@@ -55,56 +67,36 @@
 <div class="navigation" id="navigation"> </div>
 
 <div class="page-header-clear"></div>
-  
-<div class="slider-container">
-    <div class="homepage-slider" data-snap-ignore="true">                
-        <div>
-          
-            <img src="images/general-nature/1.jpg" class="responsive-image" alt="img">
-        </div>
-        <div>
-         
-            <img src="images/general-nature/3.jpg" class="responsive-image" alt="img">
-        </div>
-        <div>
-          
-            <img src="images/general-nature/6.jpg" class="responsive-image" alt="img">
-        </div>
-    </div>
-    <div class="homepage-slider-controls">
-        <a href="#" class="next-home"></a>
-        <a href="#" class="prev-home"></a>
-    </div>
+
+<div class="content-section">
+    <h1 class="left-text">Expositores</h1>
+    <em class="left-text">Conheça nossos expositores</em>
+    <div class="overlay overlay-pattern"></div>
+    <img class="responsive-image" src="images/general-nature/3w.jpg" alt="img">
 </div>
 
 <div class="content">
 	<div class="decoration"></div>
+        
     <div class="container no-bottom">
-        <h3>Bem-vindo </h3>
-        <p>Bem vindo ao aplicativo do Abrafarma Future Trends. Explore-o fazendo suas anotações, conhecendo nossos palestrantes, visualizando e/ou criando sua prórpia agenda e o melhor de tudo, podendo ver todos estes itens a qualquer momento pelo seu SmarthPhone ou Tablet.</p>
+        <h3>Expositores </h3>
+        <p></p>
+        <ul class="gallery">
+            <li><a  href="#" title="An awesome gallery!" onclick="viewImage()"><img width="50%" src="images/Estande01.jpg" alt="img" /></a></li>
+            <li><a  href="#" title="An awesome gallery!" onclick="viewImage()"><img width="50%" src="images/Estande01.jpg" alt="img" /></a></li>
+
+        </ul> 
+        
     </div>	
     <div class="decoration"></div>
     
-    <div class="container no-bottom">
-        <h3>Mensagem do Presidente</h3>
-        <p>Assista a mensagem do nosso presidente para você:</p>
-        <video width="100%" controls poster="images/img_foto_presidente_home.jpg" src="http://www.abrafarmafuturetrends.com.br/beta/web/assets/video/mena_msg01_web.mp4"></video>
-    </div>
-    <div class="decoration"></div>
-
-    <div class="container no-bottom">
-        <h3>Vídeo Institucional</h3>
-        <p>Assista ao nosso vídeo institucional</p>
-        <video width="100%" controls poster="images/img_vinheta.jpg" src="http://www.abrafarmafuturetrends.com.br/beta/web/assets/video/abrafarma_02_1.mp4"></video>
-    </div>
-    <div class="decoration"></div>
     
 </div>
 
 <div class="content">
     <div class="container">
-       
-        <p class="copyright uppercase center-text no-bottom">Copyright 2014<br> Todos os direitos reservados</p>        
+        
+        <p class="copyright uppercase center-text no-bottom">Copyright 2013<br> All rights reserved</p>        
     </div>
 </div>
 
