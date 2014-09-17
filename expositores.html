@@ -41,9 +41,9 @@
 
 <script>
     
-    function viewImage()
+    function viewImage(img)
     {
-        var ref = window.open('images/Estande01.jpg', '_blank', 'EnableViewPortScale=yes');
+        var ref = window.open(img, '_blank', 'EnableViewPortScale=yes');
     }
 </script>
 </head>
@@ -76,15 +76,20 @@
 </div>
 
 <div class="content">
-	<div class="decoration"></div>
+	
         
     <div class="container no-bottom">
-        <h3>Expositores </h3>
-        <p></p>
-        <ul class="gallery">
-            <li><a  href="#" title="An awesome gallery!" onclick="viewImage()"><img width="50%" src="images/Estande01.jpg" alt="img" /></a></li>
-            <li><a  href="#" title="An awesome gallery!" onclick="viewImage()"><img width="50%" src="images/Estande01.jpg" alt="img" /></a></li>
-
+        <div class="decoration"></div>
+        <h3>Manual do Expositor </h3>
+        <p>Por favor visualize aqui o manual do expositor</p>
+        <ul >
+            <li style="list-style: none;"><a  href="#" title="An awesome gallery!" onclick="viewImage('images/ManualdoExpositorABRAFARMA.pdf')"><img width="100%" src="images/img_manual_download.jpg" alt="img" /></a></li>
+        </ul> 
+        
+        <h3>Formulário de cadastro</h3>
+        <p>Visualize aqui o fomulário de cadatro</p>
+        <ul >
+            <li style="list-style: none;"><a  href="#" title="An awesome gallery!" onclick="viewImage('images/future_trends.docx')"><img width="100%" src="images/img_manual_download.jpg" alt="img" /></a></li>
         </ul> 
         
     </div>	
