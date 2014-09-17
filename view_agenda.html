@@ -52,7 +52,7 @@
 </script>
 
 </head>
-<body >
+<body onload="onDeviceReadyAgenda()">
 
 <div id="preloader">
 	<div id="status">
@@ -81,7 +81,7 @@
 <div class="content">
 	
     <div class="container no-bottom">
-        <h3>Agenda Sintética</h3>
+        <div id="logoSessao" align="center"></div>
         </div>	
     <div class="decoration"></div>
     
@@ -96,23 +96,22 @@
         <div class="container">
             
             <div class="tabs">
-                <a href="#" class="tab-but tab-but-1 tab-active">14/OUT</a>
-                <a href="#" class="tab-but tab-but-2">15/OUT</a>
+                <a href="#" class="tab-but tab-but-1 tab-active" id="divDia1">14/OUT</a>
+                <a href="#" class="tab-but tab-but-2" id="divDia2">15/OUT</a>
             </div>
-            <div class="tab-content tab-content-1">
-                <p>
-                    <img src="images/general-nature/1s.jpg" class="float-left" width="70" alt="img">
-                    Sed sed gravida turpis. Suspendisse quis lacus non lacus fermentum lobortis non et orci. Nullam bibendum non ligula ut viverra.
-                    Sed sed gravida turpis. Suspendisse quis lacus non lacus fermentum lobortis non et orci. Nullam bibendum non ligula ut viverra.
-                    Sed sed gravida turpis. Suspendisse quis lacus non lacus fermentum lobortis non et orci. Nullam bibendum non ligula ut viverra.
-                </p>
+            <div class="tab-content tab-content-1" id="tab-content1" >
+                
+                <!--<div class="gridAgenda" id="gridAgenda">
+                    <div class="green-notification" style="padding: 5px;" id="gridHora">dsadsa</div>
+                    <div class="gridDadosAgenda" align="center"><img src="images/general-nature/1s.jpg" class="float-left" width="100%" alt="img"></div>
+                    <div class="gridDadosAgenda" align="center"><img src="images/general-nature/1s.jpg" class="float-left" width="100%" alt="img"></div>
+                    <div class="gridDadosAgenda" align="center"><img src="images/general-nature/1s.jpg" class="float-left" width="100%" alt="img"></div>
+                </div>
+                 -->
             </div>
-            <div class="tab-content tab-content-2">
+            <div class="tab-content tab-content-2" id="tab-content2">
                 <p>
-                    <img src="images/general-nature/2s.jpg" class="float-left" width="70" alt="img">
-                    Sed sed gravida turpis. Suspendisse quis lacus non lacus fermentum lobortis non et orci. Nullam bibendum non ligula ut viverra.
-                    Sed sed gravida turpis. Suspendisse quis lacus non lacus fermentum lobortis non et orci. Nullam bibendum non ligula ut viverra.
-                    Sed sed gravida turpis. Suspendisse quis lacus non lacus fermentum lobortis non et orci. Nullam bibendum non ligula ut viverra.                    
+                    <img src="images/general-nature/2s.jpg" class="float-left" width="70" alt="img">                   
                 </p>
             </div>
              

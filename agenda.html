@@ -46,12 +46,13 @@
 <script>
      $(document).bind("mobileinit", function () {
         FastClick.attach(document.body);
-     });
         
+     });
+         sessionStorage.page = 'agenda';
 </script>
 
 </head>
-<body >
+<body onload="onDeviceReadyAgenda()">
 
 <div id="preloader">
 	<div id="status">

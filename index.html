@@ -69,9 +69,8 @@
 
  <script>
      $(document).bind("mobileinit", function () {
-        
-            FastClick.attach(document.body);
-        });
+        FastClick.attach(document.body);
+     });
         
     document.addEventListener('deviceready', onDeviceReady, false);
     //onDeviceReady();
@@ -87,7 +86,7 @@
        // sessionStorage.firstname = 'Rafael';
 </script>
 </head>
-<body onload=" onDeviceReady();">
+<body onload="onDeviceReady();">
 
 <div id="preloader">
 	<div id="status">
@@ -96,66 +95,20 @@
 </div>
 
 <div class="homepage-wrapper">
-	<img class="homepage-logo" src="images/misc/logo.png"  alt="img">
-        <div class="clear"></div>
-    
-    <div class="homepage-navigation">
-        
-        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
-            <div class="big-notification green-notification">
+	
+    <div class="homepage-navigation" align="center">
+        <img  src="images/img_logo.png"  alt="img">
+        <div class="big-notification green-notification">
                 <h3 class="uppercase" id="uppercaseSuccess" style="text-align: center;">Usuário logado com sucesso!</h3>
             </div>
-        </div>
         
-        <div class="formValidationError" id="authError">
-            <div class="static-notification-red tap-dismiss-notification">
-                <p class="center-text uppercase">Dados incorretos!</p>
-            </div>
-        </div>       
-        <div class="home-form" id="home-form">
-            <div class="home-base-form" >
-                 <form action="login/handleAutenticationApp/isApp/true" method="post" class="contactForm" id="contactForm" name="contactForm">
-                    <fieldset>
-                        <div class="formValidationError" id="loginError">
-                            <div class="static-notification-red tap-dismiss-notification">
-                                <p class="center-text uppercase">Informe o login!</p>
-                            </div>
-                        </div>             
-                        <div class="formValidationError" id="senhaError">
-                            <div class="static-notification-red tap-dismiss-notification">
-                                <p class="center-text uppercase">Informe a senha!</p>
-                            </div>
-                        </div> 
-                       
-                       
-                        <div class="formFieldWrap">
-                            <label class="field-title contactNameField" for="contactNameField">Login<span>(obrigatório)</span></label>
-                            <input type="text" name="login" value="sergio.abrafarma" class="contactField requiredField inputSize" id="login"/>
-                        </div>
-                        
-                        <div class="formFieldWrap">
-                            <label class="field-title contactEmailField" for="contactEmailField">Senha <span>(obrigatório)</span></label>
-                            <input type="password" name="senha" value="sergio2014" class="contactField requiredField inputSize" id="senha"/>
-                        </div>
-                        <br>
-                        <div class="formSubmitButtonErrorsWrap">
-                            <input type="button" class="buttonWrap button button-blue contactSubmitButton" id="contactSubmitButton" value="Enviar" data-formId="contactForm"/>
-                        </div>
-                    </fieldset>
-                </form>
-                
-            </div>
-              
-        </div>
-        
-        <div class="clear"></div>
     </div>
     
 </div>
 
 <div class="homepage-background">
 	<div class="bg-pattern"></div>
-    <div class="bg-overlay"></div>
+        <div class="bg-overlay"></div>
 	<img id="bg" src="images/bg.png" alt="img">
 </div>
 

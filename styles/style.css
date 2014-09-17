@@ -120,6 +120,27 @@ body{
 .google-icon{background-image:url(../images/misc/google.png);}
 
 
+
+.gridAgenda
+{
+    color: #fff;
+    text-align: left;
+    background-color: #c1e2b3;
+    position: relative;
+    width: 100%;
+    margin-bottom: 3px;
+    font-size: 11px;
+}
+
+.gridDadosAgenda
+{
+    position: relative; 
+    float: left; 
+    background-color: #28a4c9;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
 /* iPads (landscape) */
 @media only screen 
 and (min-width : 768px) 
@@ -206,6 +227,16 @@ and (orientation : portrait) {
 		font-size:12px;
 		color:#FFFFFF;
 	}
+        
+        
+        .gridDadosAgenda
+        {
+            position: relative; 
+            float: left; 
+            width: 225px; 
+            padding: 5px;
+            margin: 5px;
+        }
 }
 
 /*Mobile Devices in Landscape*/
@@ -239,7 +270,7 @@ and (orientation : landscape ){
 
 /*iPhone 5 + WebApp Settings*/
 
-@media screen and (height : 548px){
+@media screen and (height : 568px){
 	.homepage-navigation{
 		margin-top:55px;	
 	}
@@ -250,7 +281,17 @@ and (orientation : landscape ){
 	.footer p{
 		margin-bottom:0px;
 	}
+        
+        .gridDadosAgenda
+        {
+            position: relative; 
+            float: left; 
+            width: 105px; 
+            padding: 5px;
+            margin: 5px;
+        }
 }
+
 
 
 /*iOS WebApp Settings*/
@@ -263,6 +304,14 @@ and (orientation : landscape ){
 	.footer{
 		margin-top:35px;
 	}
+        .gridDadosAgenda
+        {
+            position: relative; 
+            float: left; 
+            width: 125px; 
+            padding: 5px;
+            margin: 5px;
+        }
 }
 
 @media screen
@@ -306,6 +355,48 @@ and (orientation : landscape){
 	}
 
 
+}
+
+/*iPhone 5 - WebApp Settings*/
+
+@media screen and (width : 360px){
+	
+	.homepage-logo{
+		margin-top:20px;
+	}
+	
+	.homepage-logo-sub{
+		margin-bottom:30px;
+	}
+	
+	.homepage-navigation{
+		margin-top:20px;	
+	}
+	
+	.homepage-navigation a{
+		margin-bottom:10px;
+	}
+	
+	.footer{
+		margin-top:30px;
+	}
+
+	.footer p{
+		margin-bottom:0px;
+	}
+
+	.footer a {
+		margin-bottom:-5px;
+	}
+
+        .gridDadosAgenda
+        {
+            position: relative; 
+            float: left; 
+            width: 135px; 
+            padding: 5px;
+            margin: 5px;
+        }
 }
 
 /*Add To Homescreen */
