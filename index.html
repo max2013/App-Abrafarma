@@ -72,7 +72,7 @@
         FastClick.attach(document.body);
      });
         
-    document.addEventListener('deviceready', onDeviceReady, false);
+    //document.addEventListener('deviceready', onDeviceReady, false);
     //onDeviceReady();
     function onDeviceReady()
     {
@@ -86,7 +86,7 @@
        // sessionStorage.firstname = 'Rafael';
 </script>
 </head>
-<body>
+<body onload="onDeviceReady();">
 
 <div id="preloader">
 	<div id="status">
@@ -99,7 +99,7 @@
     <div class="homepage-navigation" align="center">
         <img  src="images/img_logo.png"  alt="img">
         <div class="big-notification green-notification">
-                <h3 class="uppercase" id="uppercaseSuccess" style="text-align: center;">Usuário logado com sucesso!</h3>
+                <h3 class="uppercase" id="uppercaseSuccess" style="text-align: center;">Por favor aguarde...</h3>
             </div>
         
     </div>
