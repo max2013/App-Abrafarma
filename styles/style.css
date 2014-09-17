@@ -136,10 +136,48 @@ body{
 {
     position: relative; 
     float: left; 
-    background-color: #28a4c9;
+    background-color: #0d7493;    
+    border-radius: 10px;
+}
+.gridWhite
+{
+    position: relative;
+    width: 100%;
+    color: #333;
+    background-color: #FFF;
+    margin-top: 15px;
+    padding-top: 0px;
     padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.idCalendario
+{
+    position: relative;
+    float: left;
+    background-image: url(../images/img_calendario.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    overflow: hidden;
+}
+
+.redScheadle
+{
+    position: relative;
+    float: left;
+    background-image: url(../images/img_calendario.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    overflow: hidden;
+}
+
+.idNotas
+{
+    position: relative;
+    background-image: url(../images/img_anotacoes.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    overflow: hidden;
 }
 /* iPads (landscape) */
 @media only screen 
@@ -237,6 +275,60 @@ and (orientation : portrait) {
             padding: 5px;
             margin: 5px;
         }
+        
+        .idCalendario
+{
+            position: relative;
+            float: left;
+            background-image: url(../images/img_calendario.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 90px 40px;
+            width: 45px;
+            height: 50px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        .redScheadle
+        {
+            position: relative;
+            float: left;
+            background-image: url(../images/img_calendario.png);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+
+
+        .idNotas
+        {
+            position: relative;
+            float: left;
+            background-image: url(../images/img_anotacoes.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 90px 40px;
+            width: 40px;
+            height: 50px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        .idAlarme
+        {
+            position: relative;
+            background-image: url(../images/img_alarme.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 85px 40px;
+            width: 45px;
+            height: 50px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
 }
 
 /*Mobile Devices in Landscape*/
@@ -290,6 +382,61 @@ and (orientation : landscape ){
             padding: 5px;
             margin: 5px;
         }
+        
+        .idCalendario
+{
+            position: relative;
+            float: left;
+            background-image: url(../images/img_calendario.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        
+        .redScheadle
+        {
+            position: relative;
+            float: left;
+            background-image: url(../images/img_calendario.png);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+
+
+        .idNotas
+        {
+            position: relative;
+            float: left;
+            background-image: url(../images/img_anotacoes.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        
+        .idAlarme
+        {
+            position: relative;
+            background-image: url(../images/img_alarme.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 50px 30px;
+            width: 23px;
+            height: 25px;
+            overflow: hidden;
+        }
 }
 
 
@@ -311,6 +458,7 @@ and (orientation : landscape ){
             width: 125px; 
             padding: 5px;
             margin: 5px;
+            
         }
 }
 
@@ -396,6 +544,58 @@ and (orientation : landscape){
             width: 135px; 
             padding: 5px;
             margin: 5px;
+        }
+        
+        .idCalendario
+{
+            position: relative;
+            float: left;
+            background-image: url(../images/img_calendario.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        .redScheadle
+        {
+            position: relative;
+            float: left;
+            background-image: url(../images/img_calendario.png);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+
+        .idNotas
+        {
+            position: relative;
+            float: left;
+            background-image: url(../images/img_anotacoes.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 60px 30px;
+            width: 30px;
+            height: 25px;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+        .idAlarme
+        {
+            position: relative;
+            background-image: url(../images/img_alarme.png);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 50px 30px;
+            width: 23px;
+            height: 25px;
+            overflow: hidden;
         }
 }
 

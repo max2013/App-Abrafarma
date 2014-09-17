@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1.5"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/splash/splash-icon.png">
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen.png" 			media="screen and (max-device-width: 320px)" />  
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen%402x.png" 		media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" /> 
+<link rel="apple-touch-startup-image" sizes="640x1096" href="images/splash/splash-screen%403x.png" />
+<link rel="apple-touch-startup-image" sizes="1024x748" href="images/splash/splash-screen-ipad-landscape.html" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : landscape)" />
+<link rel="apple-touch-startup-image" sizes="768x1004" href="images/splash/splash-screen-ipad-portrait.png" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)" />
+<link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)"/>
+<link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
+
+<title>App - Abrafarma</title>
+
+<link href="styles/style.css"     		rel="stylesheet" type="text/css">
+<link href="styles/framework.css" 		rel="stylesheet" type="text/css">
+<link href="styles/owl.carousel.css" 	 rel="stylesheet" type="text/css">
+<link href="styles/owl.theme.css" 		rel="stylesheet" type="text/css">
+<link href="styles/swipebox.css"		 rel="stylesheet" type="text/css">
+<link href="styles/colorbox.css"		 rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/jqueryui.js"></script>
+<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.swipebox.js"></script>
+<script type="text/javascript" src="scripts/colorbox.js"></script>
+<script type="text/javascript" src="scripts/snap.js"></script>
+<script type="text/javascript" src="scripts/contact.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="scripts/framework.js"></script>
+<script type="text/javascript" src="scripts/framework.launcher.js"></script>
+
+
+<!--- MY PLUGINS -->
+        <script type="text/javascript" src="lib/js/fastclick.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
+        <script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
+        <script type="text/javascript" src="lib/js/mobile_pages/anotacoes.js"></script>
+
+        <script>
+            
+            
+            $(document).bind("mobileinit", function () {  FastClick.attach(document.body); });
+             
+            $(window).load(function()
+            {
+                var arr = window.location.hash.split('#');
+                var countDb=0;
+                var connect = new AntsDB();
+                connect.handleConnect();
+                
+                db.transaction(function(tx) {
+
+                    tx.executeSql(
+                            'SELECT * FROM tb_anotacoes where anotacoesAgendaId='+arr[1] , [], 
+                    function (tx, result)
+                    {
+                        var len = result.rows.length;
+                        countDb = len;
+                        
+                        $('#divBaseSessoes').fadeIn('fast');
+                        
+                                var employee = result.rows.item(0);
+                                $('#contactMessageTextarea').html(employee.anotacoesTexto);
+                    },
+                    function()
+                    {
+                       alert('Erro')
+                    });
+
+            });
+            
+            
+                $('#btSalvar').click(function()
+                {
+                    if(countDb < 1)
+                    {
+                        db.transaction(function(tx) {
+                          
+                            tx.executeSql(
+                                    'INSERT INTO tb_anotacoes (anotacoesAgendaId, anotacoesTexto) VALUES ("'+arr[1]+'", "'+$('#contactMessageTextarea').val()+'")' , [], 
+                            function (tx, result)
+                            {
+                                  $('#contactMessageTextarea').html($('#contactMessageTextarea').val());
+                                  alert('Anotações salvas com sucesso');
+                            },
+                            function()
+                            {
+                               alert('Houve um erro. Tente novamente, obrigado.');
+                            });
+                        });
+                    }
+                    else
+                    {
+                        db.transaction(function(tx) {
+                          
+                            tx.executeSql(
+                                    'DELETE FROM tb_anotacoes WHERE anotacoesAgendaId='+arr[1] , [], 
+                            function (tx, result)
+                            {
+                                db.transaction(function(tx) {
+                          
+                                    tx.executeSql(
+                                            'INSERT INTO tb_anotacoes (anotacoesAgendaId, anotacoesTexto) VALUES ("'+arr[1]+'", "'+$('#contactMessageTextarea').val()+'")' , [], 
+                                    function (tx, result)
+                                    {
+                                        $('#contactMessageTextarea').html($('#contactMessageTextarea').val());
+                                        alert('Anotações salvas com sucesso');
+                                    },
+                                    function()
+                                    {
+                                       alert('Houve um erro. Tente novamente, obrigado.');
+                                    });
+                                });
+                            },
+                            function()
+                            {
+                               alert('Houve um erro. Tente novamente, obrigado.');
+                            });
+                        });
+                    }
+                    
+                });
+            });
+            //alert(arr[1]);
+       </script>
+
+</head>
+
+
+<body >
+<!-- CARREGANDO -->
+<div id="preloader">
+	<div id="status">
+    	<p class="center-text"> Carregando conteúdo </p>
+    </div>
+</div>
+
+<div class="header">
+    <img src="images/misc/logo.png" class="page-logo" alt="img" width="50">
+</div>
+
+<!--- MENU --->
+
+<div class="page-header-clear"></div>
+
+<div class="content-section">
+    <h1 class="left-text">Anotações</h1>
+    <em class="left-text"></em>
+    <div class="overlay overlay-pattern"></div>
+    <img class="responsive-image" src="images/general-nature/3w.jpg" alt="img">
+</div>
+
+<div class="content">
+      
+    <div class="one-half-responsive">
+        
+        <p>Faça suas Anotações abaixo</p>
+        <div class="container no-bottom">
+            <div class="contact-form no-bottom"> 
+                <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                    <div class="big-notification green-notification">
+                        <h3 class="uppercase">Message Sent </h3>
+                        <a href="#" class="close-big-notification">x</a>
+                        <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
+                    </div>
+                </div>
+            
+                <fieldset>
+                        
+                        <div class="formTextareaWrap">
+                            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Mensagem <span>(obrigatório)</span></label>
+                            <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
+                        </div>
+                        <div class="formSubmitButtonErrorsWrap">
+                            <input type="button" class="buttonWrap button button-green contactSubmitButton" id="btSalvar" value="Salvar"/>
+                        </div>
+                        
+                        <div class="formSubmitButtonErrorsWrap">
+                            <input type="button" class="buttonWrap button button-orange contactSubmitButton" id="btEmail" value="Enviar por e-mail"/>
+                        </div>
+                    </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="decoration hide-if-responsive"></div>
+   
+    
+</div>
+
+<div class="content">
+    <div class="container">
+        
+        <p class="copyright uppercase center-text no-bottom">Copyright 2014<br> Todos os direitos reservados</p>        
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

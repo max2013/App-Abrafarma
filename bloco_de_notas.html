@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, minimum-scale=1, maximum-scale=1.5"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -38,19 +38,21 @@
 <!--- MY PLUGINS -->
 <script type="text/javascript" src="lib/js/fastclick.js"></script>
 <script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
+<script type="text/javascript" src="lib/js/mobile_pages/bloco_de_anotacoes.js"></script>
+
 
 <script>
-    
-    function viewImage(img)
-    {
-        var ref = window.open('images/'+img, '_blank', 'EnableViewPortScale=yes');
-    }
+     $(document).bind("mobileinit", function () {
+        FastClick.attach(document.body);
+        
+     });
 </script>
+
 </head>
-
-
 <body >
-<!-- CARREGANDO -->
+
 <div id="preloader">
 	<div id="status">
     	<p class="center-text"> Carregando conteúdo </p>
@@ -67,45 +69,40 @@
 <div class="navigation" id="navigation"> </div>
 
 <div class="page-header-clear"></div>
-
+  
 <div class="content-section">
-    <h1 class="left-text">Mapa de salas e Estandes</h1>
-    <em class="left-text">Disponibilidade das salas e dos estandes no evento</em>
+    <h1 class="left-text">Bloco de Anotações</h1>
+    <em class="left-text"></em>
     <div class="overlay overlay-pattern"></div>
     <img class="responsive-image" src="images/general-nature/3w.jpg" alt="img">
 </div>
 
 <div class="content">
 	
-        
     <div class="container no-bottom">
-        <h3>Mapa de salas </h3>
-        <div class="decoration"></div>
-        <p></p>
-        <ul >
-            <li style="list-style: none;"><a  href="#" title="An awesome gallery!" onclick="viewImage('img_mapa_salas1.jpg')"><img width="100%" src="images/img_mapa_salas1.jpg" alt="img" /></a></li>
-            <li style="list-style: none;"><a  href="#" title="An awesome gallery!" onclick="viewImage('img_mapa_salas2.jpg')"><img width="100%" src="images/img_mapa_salas2.jpg" alt="img" /></a></li>
-
-        </ul> 
-        
-        <h3>Mapa de Estandes </h3>
-        <div class="decoration"></div>
-        <p></p>
-        <ul >
-            <li style="list-style: none;"><a  href="#" title="An awesome gallery!" onclick="viewImage('img_mapa_estande1.jpg')"><img width="100%" src="images/img_mapa_estande1.jpg" alt="img" /></a></li>
-            <li style="list-style: none;"><a  href="#" title="An awesome gallery!" onclick="viewImage('img_mapa_estande2.jpg')"><img width="100%" src="images/img_mapa_estande2.jpg" alt="img" /></a></li>
-
-        </ul> 
-        
-    </div>	
+        <h3>Suas anotações</h3>
+        </div>	
     <div class="decoration"></div>
     
+    <div class="container no-bottom">
+       <p>Abaixo temos suas anotações</p>
+       
+       <!-- Fórum de alta Gestão -->
+       <div id="divBaseSessoes">
+           
+           <div class="one-half-responsive last-column">
+                <div class="container"> </div>      
+            </div>
+       </div>
+       
+    </div>
     
 </div>
 
+        
 <div class="content">
     <div class="container">
-        
+       
         <p class="copyright uppercase center-text no-bottom">Copyright 2014<br> Todos os direitos reservados</p>        
     </div>
 </div>
