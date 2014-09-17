@@ -126,7 +126,35 @@
                     }
                     
                 });
+                
+                
+                $('#btEmail').click(function()
+                {
+                    window.plugin.email.open({
+                        to:      ['ralves.sql@gmail.com'],
+                        subject: 'Congratulations',
+                        body:    '<h1>Happy Birthday!!!</h1>',
+                        isHtml:  true
+                    });
+                });
+                
             });
+            
+            function checkConnection() {
+                    var networkState = navigator.connection.type;
+
+                    var states = {};
+                    states[Connection.UNKNOWN]  = 'Unknown connection';
+                    states[Connection.ETHERNET] = 'Ethernet connection';
+                    states[Connection.WIFI]     = 'WiFi connection';
+                    states[Connection.CELL_2G]  = 'Cell 2G connection';
+                    states[Connection.CELL_3G]  = 'Cell 3G connection';
+                    states[Connection.CELL_4G]  = 'Cell 4G connection';
+                    states[Connection.CELL]     = 'Cell generic connection';
+                    states[Connection.NONE]     = 'No network connection';
+
+                    alert('Connection type: ' + states[networkState]);
+                }
             //alert(arr[1]);
        </script>
 
@@ -158,7 +186,7 @@
 
 <div class="content">
       
-    <div class="one-half-responsive">
+    <div class="two-half-responsive">
         
         <p>Faça suas Anotações abaixo</p>
         <div class="container no-bottom">
