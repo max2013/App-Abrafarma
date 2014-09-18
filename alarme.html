@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1.5"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/splash/splash-icon.png">
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen.png" 			media="screen and (max-device-width: 320px)" />  
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen%402x.png" 		media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" /> 
+<link rel="apple-touch-startup-image" sizes="640x1096" href="images/splash/splash-screen%403x.png" />
+<link rel="apple-touch-startup-image" sizes="1024x748" href="images/splash/splash-screen-ipad-landscape.html" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : landscape)" />
+<link rel="apple-touch-startup-image" sizes="768x1004" href="images/splash/splash-screen-ipad-portrait.png" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)" />
+<link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)"/>
+<link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
+
+<title>App - Abrafarma</title>
+
+<link href="styles/style.css"     		rel="stylesheet" type="text/css">
+<link href="styles/framework.css" 		rel="stylesheet" type="text/css">
+<link href="styles/owl.carousel.css" 	 rel="stylesheet" type="text/css">
+<link href="styles/owl.theme.css" 		rel="stylesheet" type="text/css">
+<link href="styles/swipebox.css"		 rel="stylesheet" type="text/css">
+<link href="styles/colorbox.css"		 rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/jqueryui.js"></script>
+<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.swipebox.js"></script>
+<script type="text/javascript" src="scripts/colorbox.js"></script>
+<script type="text/javascript" src="scripts/snap.js"></script>
+<script type="text/javascript" src="scripts/contact.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="scripts/framework.js"></script>
+<script type="text/javascript" src="scripts/framework.launcher.js"></script>
+
+
+<!--- MY PLUGINS -->
+        <script type="text/javascript" src="lib/js/fastclick.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
+        <script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
+        <script type="text/javascript" src="lib/js/mobile_pages/anotacoes.js"></script>
+
+        <script>
+            
+            
+            $(document).bind("mobileinit", function () {  FastClick.attach(document.body); });
+             
+            $(window).load(function()
+            {
+                var arrAlarme = new Array('0:05', '0:10','0:15');
+                
+                var arr = window.location.hash.split('#');
+                var agendaId = arr[1].split(';');
+                
+                var connect = new AntsDB();
+                connect.handleConnect();
+                            
+                $('#btSalvar').click(function()
+                {
+                        db.transaction(function(tx) {
+                          
+                            tx.executeSql(
+                                    'SELECT * FROM tb_agenda a, tb_horarios b '+
+                                    'WHERE '+
+                                    'a.agendaHorario = b.horariosId '+
+                                    'AND '+
+                                    'a.agendaId='+agendaId[1] , [], 
+                            function (tx, result)
+                            {
+                                  var dados = result.rows.item(0);
+                                  
+                                  handleCalculeHoraLembrete(dados.horariosHora, arrAlarme[$('#contactMessageTextarea').val()])
+                            },
+                            function()
+                            {
+                               
+                            });
+                        });
+                });
+                                
+            });
+            
+            
+            function handleCalculeHoraLembrete(hora, lembrete)
+            {
+                 
+                var start = '18:00';
+                var end = '0:15';
+
+                var s = start.split(':');
+                var e = end.split(':');
+
+                var min = s[1]- e[1];
+                    //alert(min)
+                var hour_carry = 0;
+                if(min < 0){
+                    min += 60;
+                    hour_carry += 1;
+                }
+                var hour = s[0]-e[0]-hour_carry;
+                var diff = hour + ":" + min;
+            }
+       </script>
+
+</head>
+
+
+<body >
+<!-- CARREGANDO -->
+<div id="preloader">
+	<div id="status">
+    	<p class="center-text"> Carregando conteúdo </p>
+    </div>
+</div>
+
+<div class="header">
+    <img src="images/misc/logo.png" class="page-logo" alt="img" width="50">
+</div>
+
+<!--- MENU --->
+
+<div class="page-header-clear"></div>
+
+<div class="content-section">
+    <h1 class="left-text">Alarme</h1>
+    <em class="left-text">Lembre de sessão</em>
+    <div class="overlay overlay-pattern"></div>
+    <img class="responsive-image" src="images/general-nature/3w.jpg" alt="img">
+</div>
+
+<div class="content">
+      
+    <div class="two-half-responsive">
+        
+        <p>Seleciona abaixo um lembrete para esta sessão.<br>
+        No horário selecionado, seu celular tocará um BEEP e irá começar a VIBRAR</p>
+        <div class="container no-bottom">
+            <div class="contact-form no-bottom"> 
+               
+            
+                <fieldset>
+                        
+                        <div class="formTextareaWrap">
+                            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Escolha quantos minutos antes do horário deseja receber o lembrete. <span>(obrigatório)</span></label>
+                            <select name="contactMessageTextarea" class="contactField" id="contactMessageTextarea">
+                                <option value="" selected="selected"> Clique aqui e escolha uma opção</option>
+                                <option value="0" >5 minutos antes</option>
+                                <option value="1" >10 minutos antes</option>
+                                <option value="2" >15 minutos antes</option>
+                                <option value="3" >Remover alarme</option>
+                                
+                            </select>
+                        </div>
+                        <div class="formSubmitButtonErrorsWrap">
+                            <input type="button" class="buttonWrap button button-green contactSubmitButton" id="btSalvar" value="Salvar"/>
+                        </div>
+                    </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="decoration hide-if-responsive"></div>
+   
+    
+</div>
+
+<div class="content">
+    <div class="container">
+        
+        <p class="copyright uppercase center-text no-bottom">Copyright 2014<br> Todos os direitos reservados</p>        
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
