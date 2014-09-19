@@ -7,7 +7,7 @@ $(window).load(function() { // makes sure the whole site is loaded
         //by Rafael Alves - Load Menu Navigation
         $('#navigation').load('menu.html');
        
-       
+       window.plugin.backgroundMode.enable();
 })
 
 $(document).ready(function(){
