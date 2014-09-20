@@ -40,19 +40,19 @@
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
         <script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
-        <script type="text/javascript" src="lib/js/mobile_pages/anotacoes.js"></script>
 
         <script>
             
             
             $(document).bind("mobileinit", function () {  FastClick.attach(document.body); });
             
-            $(window).load(function()
+           
+            function onDeviceReadyAnotacoes()
             {
                 var arr = window.location.hash.split('#');
                 var countDb=0;
-                var connect = new AntsDB();
-                connect.handleConnect();
+                
+                antsDb.handleConnect();
                 
                 db.transaction(function(tx) {
 
@@ -61,6 +61,7 @@
                     function (tx, result)
                     {
                         var len = result.rows.length;
+                       
                         countDb = len;
                         
                         $('#divBaseSessoes').fadeIn('fast');
@@ -151,30 +152,14 @@
                     }
                 });
                 
-            });
+            };
             
-            function checkConnection() {
-                    var networkState = navigator.connection.type;
-
-                    var states = {};
-                    states[Connection.UNKNOWN]  = 'Unknown connection';
-                    states[Connection.ETHERNET] = 'Ethernet connection';
-                    states[Connection.WIFI]     = 'WiFi connection';
-                    states[Connection.CELL_2G]  = 'Cell 2G connection';
-                    states[Connection.CELL_3G]  = 'Cell 3G connection';
-                    states[Connection.CELL_4G]  = 'Cell 4G connection';
-                    states[Connection.CELL]     = 'Cell generic connection';
-                    states[Connection.NONE]     = 'No network connection';
-
-                    alert('Connection type: ' + states[networkState]);
-                }
-            //alert(arr[1]);
        </script>
 
 </head>
 
 
-<body >
+<body onload="onDeviceReadyAnotacoes()">
 <!-- CARREGANDO -->
 <div id="preloader">
 	<div id="status">
