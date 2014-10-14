@@ -46,7 +46,7 @@
             
             
             $(document).bind("mobileinit", function () {  FastClick.attach(document.body); });
-             
+            
             $(window).load(function()
             {
                 var arr = window.location.hash.split('#');
@@ -130,25 +130,25 @@
                 
                 $('#btEmail').click(function()
                 {
-                    $.post('http://www.abrafarmafuturetrends.com.br/blocoanotacoes/handleSendEmail/',{email:'ralves.sql@gmail.com',anotacoes:$('#contactMessageTextarea').val()},
-                    function(data)
+                    if($('#contactEmailField').val() !== '')
                     {
-                        if(data.mensagem === 'success')
+                        $.post('http://www.abrafarmafuturetrends.com.br/blocoanotacoes/handleSendEmail/',{email:$('#contactEmailField').val(),anotacoes:$('#contactMessageTextarea').val()},
+                        function(data)
                         {
-                            alert('Anotações enviadas com sucesso!');
-                        }
-                        else
-                        {
-                            alert('Houve um erro, verifique sua conexão e tente novamente!');
-                        }
-                    },'json');
-                    /*window.plugin.email.open({
-                        to:      ['ralves.sql@gmail.com'],
-                        subject: 'Congratulations',
-                        body:    '<h1>Happy Birthday!!!</h1>',
-                        isHtml:  true
-                    });
-                    */
+                            if(data.mensagem === 'success')
+                            {
+                                alert('Anotações enviadas com sucesso!');
+                            }
+                            else
+                            {
+                                alert('Houve um erro, verifique sua conexão e tente novamente!');
+                            }
+                        },'json');
+                    }
+                    else
+                    {
+                        alert('Por favor preencha seu e-mail');
+                    }
                 });
                 
             });
@@ -222,6 +222,11 @@
                             <input type="button" class="buttonWrap button button-green contactSubmitButton" id="btSalvar" value="Salvar"/>
                         </div>
                         
+                        <div class="formFieldWrap">
+                            <label class="field-title contactEmailField" for="contactEmailField"><span>(obrigatório)</span></label>
+                            <input type="email" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField" placeholder="Insira seu e-mail"/>
+                        </div>
+                    
                         <div class="formSubmitButtonErrorsWrap">
                             <input type="button" class="buttonWrap button button-orange contactSubmitButton" id="btEmail" value="Enviar por e-mail"/>
                         </div>

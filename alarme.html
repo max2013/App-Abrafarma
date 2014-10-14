@@ -40,7 +40,6 @@
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="lib/js/mobile_pages/php.js"></script>
         <script type="text/javascript" src="lib/js/mobile_pages/js_install.js"></script>
-        <script type="text/javascript" src="lib/js/mobile_pages/anotacoes.js"></script>
 
         <script>
             
@@ -50,6 +49,7 @@
             $(window).load(function()
             {
                 var arrAlarme = new Array('0:05', '0:10','0:15');
+                var arrTimer = new Array(5, 10, 15);
                 
                 var arr = window.location.hash.split('#');
                 var agendaId = arr[1].split(';');
@@ -59,6 +59,8 @@
                             
                 $('#btSalvar').click(function()
                 {
+                    if($('#contactMessageTextarea').val() !== '3')
+                    {
                         db.transaction(function(tx) {
                           
                             tx.executeSql(
@@ -70,26 +72,54 @@
                             function (tx, result)
                             {
                                   var dados = result.rows.item(0);
-                                  
-                                  handleCalculeHoraLembrete(dados.horariosHora, arrAlarme[$('#contactMessageTextarea').val()])
+                                  var obj = new Object();
+                                  obj.dia = dados.agendaDia;
+                                  obj.hora = dados.horariosHora;
+                                  obj.alarme = arrAlarme[$('#contactMessageTextarea').val()];
+                                  obj.agenda = agendaId[1];
+                                  obj.timer = arrTimer[$('#contactMessageTextarea').val()];
+                                  handleCalculeHoraLembrete(obj)
                             },
                             function()
                             {
-                               
+                               alert('Houve um erro, tente novamente.');
                             });
                         });
+                    }
+                    else
+                    {
+                       
+                        if(confirm('Tem certeja que deseja cancelar este Alarme?'))
+                        {
+                            db.transaction(function(tx) {
+                          
+                                tx.executeSql(
+                                        'DELETE FROM tb_alarme WHERE alarmeAgendaId='+agendaId[1] , [], 
+                                function (tx, result)
+                                {
+                                      alert('Alarme removido com sucesso');
+                                },
+                                function()
+                                {
+                                   alert('Houve um erro, tente novamente.');
+                                });
+                            });
+                            
+                        
+                        };
+                    }
                 });
                                 
             });
             
             
-            function handleCalculeHoraLembrete(hora, lembrete)
+            function handleCalculeHoraLembrete(Objdados)
             {
-                 
-                var start = '18:00';
-                var end = '0:15';
+                
+                var start = Objdados.hora;//'18:00';
+                var end = Objdados.alarme;//'0:15';
 
-                var s = start.split(':');
+                var s = start.split('h');
                 var e = end.split(':');
 
                 var min = s[1]- e[1];
@@ -101,6 +131,54 @@
                 }
                 var hour = s[0]-e[0]-hour_carry;
                 var diff = hour + ":" + min;
+                
+                
+                  db.transaction(function(tx) {
+                          
+                            tx.executeSql(
+                                    'SELECT * FROM tb_alarme '+
+                                    'WHERE '+
+                                    'alarmeAgendaId = '+Objdados.agenda+' '+
+                                    'AND alarmeStatus=1', [], 
+                            function (tx, result)
+                            {
+                                var len = result.rows.length;
+                                
+                               
+                                if(len === 0)
+                                {
+                                    db.transaction(function(tx) {
+                          
+                                        tx.executeSql(
+                                                'INSERT INTO tb_alarme '+
+                                                '(alarmeAgendaId, alarmeDia, alarmeHora, alarmeAgendaHora, alarmeTimer, alarmeStatus) '+
+                                                'VALUES '+
+                                                '('+Objdados.agenda+', '+Objdados.dia+', "'+diff+'","'+Objdados.hora+'",'+Objdados.timer+', 1)', [], 
+                                        function (tx, result)
+                                        {
+                                           alert("Alarme criado com sucesso")
+                                        },
+                                        function()
+                                        {
+                                           alert('Houve um erro ao criar o alarme. Tente novamente.');
+                                        });
+                                    });
+                                }
+                                else
+                                {
+                                    var dados = result.rows.item(0);
+                                    console.log(dados)
+                                    alert('Já existe um alarme para esta Sessão')
+                                }
+                                //
+                            },
+                            function()
+                            {
+                               alert('Houve um erro, tente novamente.');
+                            });
+                        });
+                        
+                
             }
        </script>
 
